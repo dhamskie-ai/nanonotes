@@ -36,7 +36,14 @@ function getModel() {
       const ai = getAI(app, { backend: new GoogleAIBackend() });
       // Hybrid inference: prefer on-device Gemini Nano, fall back to cloud.
       // (String form of InferenceMode.PREFER_ON_DEVICE.)
-      return getGenerativeModel(ai, { mode: "prefer_on_device" });
+      // Model pinned explicitly in inCloudParams: the SDK default
+      // (gemini-2.5-flash-lite) is no longer available to new users
+      // (404, 28 Nov 2026); the API itself suggests gemini-3.5-flash-lite.
+      // (Top-level `model` is ignored in hybrid mode — the SDK warns so.)
+      return getGenerativeModel(ai, {
+        mode: "prefer_on_device",
+        inCloudParams: { model: "gemini-3.5-flash-lite" },
+      });
     })();
   }
   return modelPromise;

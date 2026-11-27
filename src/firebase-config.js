@@ -17,12 +17,12 @@
 // ---------------------------------------------------------------------------
 
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyDMhfwWNgJjS5lHvOvUsMeJa2-HhP2Q7yY",
+  authDomain: "nanonotes-edd34.firebaseapp.com",
+  projectId: "nanonotes-edd34",
+  storageBucket: "nanonotes-edd34.firebasestorage.app",
+  messagingSenderId: "1099161177731",
+  appId: "1:1099161177731:web:91aac06d83b23245b1d5b6",
 };
 
 // True only once a real config has been pasted in.
