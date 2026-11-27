@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NanoNotes — write short notes, summarize and organize them with AI. Runs on-device Gemini Nano in Chrome via Firebase AI Logic, with cloud fallback." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>NanoNotes — AI Web Notes</title>
+    <script type="module" crossorigin src="./assets/index-C-Nb4k71.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CUVnIuNj.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <div>
+          <h1>NanoNotes</h1>
+          <p class="tagline">Short notes, summarized by AI — on your device when possible.</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <span id="ai-status" class="status-pill status-unknown" title="Firebase AI Logic status">AI: checking…</span>
+        <button id="new-note-btn" class="btn btn-primary" type="button">+ New note</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search notes…"
+          aria-label="Search notes"
+        />
+        <ul id="notes-list" class="notes-list" aria-label="Your notes"></ul>
+        <p class="sidebar-hint">Notes are stored locally in your browser (localStorage). Nothing leaves your device until you ask the AI to summarize a note.</p>
+      </aside>
+
+      <main class="editor">
+        <div id="empty-state" class="empty-state">
+          <p class="empty-title">No note selected</p>
+          <p>Pick a note on the left, or create a new one to get started.</p>
+          <button id="empty-new-note-btn" class="btn btn-primary" type="button">+ New note</button>
+        </div>
+
+        <div id="editor-pane" class="editor-pane" hidden>
+          <input
+            id="note-title"
+            type="text"
+            placeholder="Note title"
+            aria-label="Note title"
+            maxlength="120"
+          />
+          <textarea
+            id="note-body"
+            placeholder="Write your note here…"
+            aria-label="Note body"
+            rows="12"
+          ></textarea>
+
+          <div class="tags-row" id="tags-row" hidden>
+            <span class="tags-label">Tags:</span>
+            <span id="tags-list"></span>
+          </div>
+
+          <div class="ai-panel">
+            <div class="ai-actions">
+              <button id="summarize-btn" class="btn btn-ai" type="button">✦ Summarize with AI</button>
+              <button id="tags-btn" class="btn btn-ai" type="button">✦ Suggest tags</button>
+            </div>
+            <p id="ai-hint" class="ai-hint"></p>
+            <div id="summary-box" class="summary-box" hidden>
+              <div class="summary-head">
+                <strong>AI summary</strong>
+                <span id="summary-meta" class="summary-meta"></span>
+              </div>
+              <p id="summary-text"></p>
+              <button id="summary-clear-btn" class="btn btn-ghost" type="button">Clear summary</button>
+            </div>
+            <p id="ai-error" class="ai-error" role="alert" hidden></p>
+          </div>
+
+          <div class="editor-footer">
+            <span id="save-state" class="save-state">Saved locally</span>
+            <button id="delete-note-btn" class="btn btn-danger" type="button">Delete note</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="app-footer">
+      <p>
+        Built for #BuildHybridAI 2026 · AI by
+        <a href="https://firebase.google.com/docs/ai-logic" target="_blank" rel="noopener">Firebase AI Logic</a>
+        — hybrid inference: on-device Gemini Nano in Chrome when available, cloud fallback otherwise.
+        Notes stay on this device unless you use an AI action.
+      </p>
+    </footer>
+
+  </body>
+</html>
